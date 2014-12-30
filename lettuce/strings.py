@@ -18,6 +18,7 @@
 import re
 import time
 import unicodedata
+from collections import OrderedDict
 
 
 def utf8_string(s):
@@ -171,7 +172,7 @@ def parse_hashes(lines, json_format=None):
         for line in lines:
             values = split_wisely(line, u"|", True)
             values = map(deline, values)
-            hashes.append(dict(zip(keys, values)))
+            hashes.append(OrderedDict(zip(keys, values)))
 
     return keys, hashes
 
